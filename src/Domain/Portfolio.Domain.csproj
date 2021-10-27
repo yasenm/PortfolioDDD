@@ -3,6 +3,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.Domain\Common.Domain.csproj" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectCapability Include="DynamicFileNesting" />
+  </ItemGroup>
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -12,5 +16,12 @@
 		<AssemblyName>Portfolio.Domain</AssemblyName>
 		<RootNamespace>Portfolio.Domain</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup Condition="'$(Configuration)' != 'Release'">
+    <PackageReference Include="FluentAssertions" Version="6.1.0" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3" />
+  </ItemGroup>
 
 </Project>

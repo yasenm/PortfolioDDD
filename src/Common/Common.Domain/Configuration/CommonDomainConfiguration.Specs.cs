@@ -1,4 +1,4 @@
-﻿namespace Portfolio.Common.Domain.Extensions
+﻿namespace Portfolio.Common.Domain.Configuration
 {
     using FluentAssertions;
     using Microsoft.Extensions.DependencyInjection;
@@ -6,7 +6,7 @@
     using System.Reflection;
     using Xunit;
 
-    public class ServiceCollectionExtensionsSpecs
+    public class DomainConfigurationSpecs
     {
         [Fact]
         public void VerifyServiceExtensionAddFactoriesScansAssemblyAndAddsFactories()

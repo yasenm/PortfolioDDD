@@ -1,11 +1,11 @@
-﻿namespace Portfolio.Common.Domain.Extensions
+﻿namespace Portfolio.Common.Domain.Configuration
 {
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.DependencyInjection.Extensions;
-    using System.Linq;
+    using Portfolio.Common.Domain.Extensions;
     using System.Reflection;
 
-    public static class ServiceCollectionExtensions
+    public static class CommonDomainConfiguration
     {
         public static IServiceCollection AddDomain(this IServiceCollection services, Assembly assembly)
             => services
