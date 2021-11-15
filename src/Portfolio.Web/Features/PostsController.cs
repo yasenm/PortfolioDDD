@@ -1,6 +1,7 @@
 ﻿namespace Portfolio.Web.Features
 {
     using Microsoft.AspNetCore.Mvc;
+    using Portfolio.Application.Contracts;
     using Portfolio.Domain.Posts.Models.Posts;
     using System.Collections.Generic;
 
@@ -8,12 +9,14 @@
     [Route("[controller]")]
     public class PostsController : ControllerBase
     {
-        private static readonly List<Post> posts = new List<Post>()
-            {
-                new Post("testtitle", "testcontenttestcontenttestcontenttestcontenttestcontenttestcontenttestcontenttestcontenttestcontenttestcontenttestcontenttestcontenttestcontenttestcontenttestcontenttestcontenttestcontenttestcontenttestcontenttestcontent")
-            };
+        private readonly IDomainRepository<Post> repository;
+
+        public PostsController(IDomainRepository<Post> repository)
+        {
+            this.repository = repository;
+        }
 
         [HttpGet]
-        public IEnumerable<Post> Get() => posts;
+        public IEnumerable<Post> Get() => repository.All();
     }
 }

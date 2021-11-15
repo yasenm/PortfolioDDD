@@ -1,12 +1,13 @@
 namespace Portfolio.Domain.Posts.Models.Posts
 {
+    using Portfolio.Common.Domain;
     using Portfolio.Common.Domain.Models;
     using Portfolio.Domain.Posts.Events;
     using Portfolio.Domain.Posts.Exceptions;
     using System.Collections.Generic;
     using System.Linq;
 
-    public class Post : Entity<int>
+    public class Post : Entity<int>, IAggregateRoot
     {
         private readonly HashSet<Tag> tags;
 

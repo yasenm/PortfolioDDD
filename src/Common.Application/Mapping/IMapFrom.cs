@@ -4,6 +4,6 @@
 
     public interface IMapFrom<T>
     {
-        void Map(Profile mapper) => mapper.CreateMap(typeof(T), this.GetType());
+        void Mapping(Profile mapper) => mapper.CreateMap(typeof(T), this.GetType());
     }
 }

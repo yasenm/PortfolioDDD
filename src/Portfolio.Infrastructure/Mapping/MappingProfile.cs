@@ -1,9 +1,8 @@
-﻿namespace Common.Infrastructure.Mapping
+﻿namespace Portfolio.Infrastructure.Mapping
 {
     using AutoMapper;
-    using Common.Application.Configuration;
-    using Common.Infrastructure.Configuration;
     using Portfolio.Common.Application.Mapping;
+    using Portfolio.Infrastructure.Configuration;
     using System;
     using System.Linq;
     using System.Reflection;
@@ -12,8 +11,7 @@
     {
         public MappingProfile()
             => this.ApplyMappingsFromAssembly(
-                typeof(CommonApplicationConfiguration).Assembly,
-                typeof(CommonInfrastructureConfiguration).Assembly);
+                typeof(InfrastructureConfiguration).Assembly);
 
         private void ApplyMappingsFromAssembly(params Assembly[] assemblies)
         {
