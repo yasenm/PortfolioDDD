@@ -1,9 +1,8 @@
-﻿namespace Portfolio.Common.Application.Mapping
-{
-    using AutoMapper;
+﻿namespace Portfolio.Common.Application.Mapping;
 
-    public interface IMapFrom<T>
-    {
-        void Mapping(Profile mapper) => mapper.CreateMap(typeof(T), this.GetType());
-    }
+using AutoMapper;
+
+public interface IMapFrom<T>
+{
+    void Mapping(Profile mapper) => mapper.CreateMap(typeof(T), this.GetType());
 }

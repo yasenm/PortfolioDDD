@@ -1,12 +1,12 @@
-﻿namespace Portfolio.Common.Infrastructure.Configuration
-{
-    using Microsoft.Extensions.DependencyInjection;
+﻿namespace Portfolio.Common.Infrastructure.Configuration;
 
-    public static class CommonInfrastructureConfiguration
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+public static class CommonInfrastructureConfiguration
+{
+    public static IServiceCollection AddCommonInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        public static IServiceCollection AddCommonInfrastructure(this IServiceCollection services)
-        {
-            return services;
-        }
+        return services;
     }
 }

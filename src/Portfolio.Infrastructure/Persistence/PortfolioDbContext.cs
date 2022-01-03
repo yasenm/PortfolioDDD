@@ -1,13 +1,15 @@
 ﻿namespace Portfolio.Infrastructure.Persistence
 {
+    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
+    using Portfolio.Infrastructure.Identity;
     using Portfolio.Infrastructure.Persistence.Models;
     using System.Diagnostics.CodeAnalysis;
     using System.Reflection;
 
-    internal class PortfolioDbContext : DbContext
+    internal class PortfolioDbContext : IdentityDbContext<User>
     {
-        public PortfolioDbContext([NotNullAttribute] DbContextOptions options) : base(options)
+        public PortfolioDbContext([NotNull] DbContextOptions options) : base(options)
         {
         }
 

@@ -1,26 +1,34 @@
-namespace Portfolio.Startup
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Portfolio.Common.Application.Configuration;
+using Portfolio.Common.Infrastructure.Configuration;
+using Portfolio.Infrastructure.Configuration;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCommonApplication(builder.Configuration);
+builder.Services.AddCommonInfrastructure(builder.Configuration);
+builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddControllers();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
 {
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.Hosting;
-    using Microsoft.Extensions.Logging;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
-
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
-    }
+    app.UseDeveloperExceptionPage();
 }
+
+//app.UseHttpsRedirection();
+
+app.UseRouting();
+
+app.UseAuthorization();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
+
+app.Run();
