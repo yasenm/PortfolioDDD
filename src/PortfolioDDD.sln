@@ -21,6 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Infrastructure", "Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.Application", "Portfolio.Application\Portfolio.Application.csproj", "{86B5CD60-9609-4023-9DCF-3AC91A951387}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9F6FD49D-0E8E-4298-A891-0F41BFFB8C33}"
+	ProjectSection(SolutionItems) = preProject
+		PeriferialInfra\docker-compose.yml = PeriferialInfra\docker-compose.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -30,9 +30,11 @@
             IConfiguration configuration)
             => services
                 .AddDbContext<PortfolioDbContext>(options => options
-                    .UseSqlServer(
-                        configuration.GetConnectionString("DefaultConnection"),
+                    .UseNpgsql(configuration.GetConnectionString("DefaultConnection"),
                         b => b.MigrationsAssembly(typeof(PortfolioDbContext).Assembly.FullName)));
+                    //.UseSqlServer(
+                    //    configuration.GetConnectionString("DefaultConnection"),
+                    //    b => b.MigrationsAssembly(typeof(PortfolioDbContext).Assembly.FullName)));
 
         internal static IServiceCollection AddTestInfrastructure(this IServiceCollection services)
             => services
